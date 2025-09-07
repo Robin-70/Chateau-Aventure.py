@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 lieu = "hutte"
 action = ()
 canne_a_peche = 0
@@ -5,28 +7,26 @@ rose = 0
 poisson = 0
 branche = 0
 branche_cassee = 0
-clé = 0
+cle = 0
 couronne = 0
 bougie = 0
 garde_KO = 0
 poisson_troll = 0
 rose_princesse = 0
-couronne_tête = 0
-clé_porte = 0
+couronne_tete = 0
+cle_porte = 0
 catatorche = 0
 fantome = 1
 couronne_terre = 0
 choix = ()
 
-
-
 def examiner(objet):
     if objet in description:
         print(description[objet])
     else:
-        print("Vous ne voyez rien de spécial à propos de ",objet,".\n")
+        print("Vous ne voyez rien de spécial à propos de", objet, ".\n")
 
-description = {"torche":"C'est un objet de combustion manuelle semi-portatif à activation pyrogène, destiné à la projection directionnelle et localisée d’un rayonnement électromagnétique dans le spectre visible, généralement utilisé en contexte de déplacement nocturne ou d’exploration de cavités naturelles. Une torche quoi ;)\n"}
+description = {"torche":"C'est un objet de combustion manuelle semi-portatif à activation pyrogène, destiné à la projection directionnelle et localisée d'un rayonnement électromagnétique dans le spectre visible, généralement utilisé en contexte de déplacement nocturne ou d'exploration de cavités naturelles. Une torche quoi ;)\n"}
 
 def inventaire():
     print("Torche allumée\n")
@@ -35,7 +35,7 @@ def inventaire():
     if rose != 0:
         if rose == 1:
             print("1 Rose\n")
-        elif rose <= 1:
+        elif rose >= 1:
             print(rose, "Rose(s)\n")
     if poisson == 1:
         print("Poisson cru\n")
@@ -47,15 +47,14 @@ def inventaire():
         print("Couronne\n")
     if bougie == 1:
         print("Bougie\n")
-    if clé == 1:
+    if cle == 1:
         print("Clé\n")
 
 def help():
-    print("Les principales commandes sont:\n- examiner (pour avoir la description du lieu\n- examiner ... (pour avoir la description de l'objet)\n- prendre\n- utiliser\n- sentir\n- donner ... à ...- allumer ... avec torche\n- frapper ... avec ...\n- sauter\n- asseoir sur trône\n- credits\n- inventaire\n- sortie, pour avoir les sorties du lieu (recopier complètement le nom)\n")
+    print("Les principales commandes sont:\n- examiner (pour avoir la description du lieu)\n- examiner ... (pour avoir la description de l'objet)\n- prendre\n- utiliser\n- sentir\n- donner ... à ...\n- allumer ... avec torche\n- frapper ... avec ...\n- sauter\n- asseoir sur trône\n- credits\n- inventaire\n- sortie, pour avoir les sorties du lieu (recopier complètement le nom)\n")
 
 def credits():
     print("Antoine au codage, son père pour la relecture et Iello Games pour l'histoire\nMon petit frère pour le bêta-test\nMon amie Gabrielle pour la blague du poisson\n")
-
 
 print("Bienvenue à Château Aventure.\n\nTapez 'aide' pour avoir accès aux principales commandes du jeu.\n\n")
 
@@ -66,7 +65,7 @@ while True:
         if canne_a_peche == 1:
             print("Vous êtes debout dans une petite hutte.\n")
         while lieu == "hutte":
-            action = input ()
+            action = input()
             if action == "examiner":
                 if canne_a_peche == 0:
                     print("Vous êtes debout dans une petite hutte.\nIl y a une canne à pêche ici.\n")
@@ -99,31 +98,30 @@ while True:
                 print("Commande inconnue\n")
 
     if lieu == "jardin":
-
         print("\nVous êtes dans les jardins royaux, la végétation est luxuriante.\nIl y a un rosier. Vous apercevez aussi une hutte.\n")
         while lieu == "jardin":
             action = input()
             if action == "examiner":
                 print("Vous êtes dans les jardins royaux, leur végétation est luxuriante.\nIl y a un rosier. Vous apercevez aussi une hutte.\n")
             elif action == ("sentir rose"):
-                print ("Cela sent bon.")
+                print("Cela sent bon.")
             elif action == ("examiner rosier"):
                 print("Il y a une très jolie rose dessus\n")
             elif action in ("cueillir rose", "prendre rose"):
                 rose += 1
-                print("Vous avez maintenant", rose,"rose dans votre inventaire.\n")
+                print("Vous avez maintenant", rose, "rose dans votre inventaire.\n")
                 description["rose"] = "une fleur rose sentant bon.\n"
                 if rose == 0:
                     print("Vous avez maintenant une rose dans votre inventaire.\n")
                     description["rose"] = "une fleur rose sentant bon.\n"
-                elif rose <= 1:
-                    print("Vous avez maintenant", rose,"roses dans votre inventaire.\n")
+                elif rose >= 1:
+                    print("Vous avez maintenant", rose, "roses dans votre inventaire.\n")
             elif action in ("allumer rosier avec torche", "utiliser torche avec rosier"):
-                print("Vous n'oseriez pas brûler les rosiers royaux.\n")
+                print("Vous n'oseriez pas brûler les rosiers royaux.\n")
             elif action == "sortie":
                 print("Les sorties sont:\nest\nouest\nentrer hutte\n")
             elif action == ("est"):
-                lieu = "étang"
+                lieu = "etang"
             elif action == ("ouest"):
                 lieu = "sentier"
             elif action == ("entrer hutte"):
@@ -139,13 +137,13 @@ while True:
             else:
                 print("Commande inconnue\n")
 
-    if lieu == "étang":
+    if lieu == "etang":
         print("Vous arrivez sur la rive d'un étang\n")
-        while lieu == "étang":
+        while lieu == "etang":
             action = input()
             if action == "examiner":
                 print("Vous êtes sur la rive d'un étang.\n")
-            elif action ==("examiner étang"):
+            elif action == ("examiner etang"):
                 if poisson == 0:
                     print("Il y a des poissons qui nagent dans l'étang.\n")
                 if poisson == 1:
@@ -155,16 +153,16 @@ while True:
                     if poisson == 0:
                         print("Vous réussissez à attraper un poisson.\nVous avez maintenant un poisson dans votre inventaire.\n")
                         poisson = 1
-                        description["poisson"] = "Un poisson fraichement pêché, cru. Il s'appelle probablement Steve.\n"
+                        description["poisson"] = "Un poisson fraîchement pêché, cru. Il s'appelle probablement Steve.\n"
                     elif poisson == 1:
                         print("Vous avez pêché le seul poisson de l'étang, il n'y en a plus\n")
                 else:
                     print("Vous n'avez pas de canne à pêche...\n")
-            elif action ==("manger poisson"):
+            elif action == ("manger poisson"):
                 print("Le poisson ne peut pas être mangé cru...\n")
-            elif action ==("sortie"):
+            elif action == ("sortie"):
                 print("Les sorties sont:\nouest")
-            elif action ==("ouest"):
+            elif action == ("ouest"):
                 lieu = "jardin"
             elif action == "aide":
                 help()
@@ -183,17 +181,14 @@ while True:
             action = input()
             if action == "examiner":
                 print("Vous marchez le long d'un sentier sinueux qui serpente à travers les collines.\nIl y a un très grand z'arbre.\n")
-            elif action ==("sortie"):
+            elif action == ("sortie"):
                 print("Les sorties sont:\nest\nnord\nmonter arbre\n")
-            elif action ==("est"):
+            elif action == ("est"):
                 lieu = "jardin"
-                
-            elif action ==("nord"):
+            elif action == ("nord"):
                 lieu = "pont_levis"
-                
-            elif action in ("monter très grand z'arbre", "monter arbre", "monter z'arbre\n"):
+            elif action in ("monter très grand z'arbre", "monter arbre", "monter z'arbre"):
                 lieu = "cime_arbre"
-                
             elif action == "aide":
                 help()
             elif action in ("crédits", "credits"):
@@ -205,19 +200,19 @@ while True:
             else:
                 print("Commande inconnue\n")
             
-    if lieu =="cime_arbre":
+    if lieu == "cime_arbre":
         if branche == 0:
             print("Vous arrivez en haut du très grand z'arbre.\nIl y a une branche morte qui semble bien solide.\n")
         if branche == 1:
             print("Vous arrivez en haut du très grand z'arbre.\n")
         while lieu == "cime_arbre":
-            action = input ()
+            action = input()
             if action == "examiner":
                 if branche == 0:
                     print("Vous êtes en haut du très grand z'arbre.\nIl y a une branche morte qui semble bien solide.")
                 if branche == 1:
                     print("Vous êtes en haut du très grand z'arbre.")
-            elif action ==("sauter"):
+            elif action == ("sauter"):
                 print("Vous tombez du haut du très grand z'arbre et mourez.\n")
                 exit() 
                 print("GAME OVER")
@@ -229,8 +224,8 @@ while True:
                 print("Vous récupérez la branche.\nVous avez maintenant une branche dans votre inventaire.\n")
                 branche = 1
                 description["branche"] = "Une branche morte venant du très grand z'arbre.\n"
-            elif action ==("sortie"):
-                print("Les sorties sont:\n descendre")
+            elif action == ("sortie"):
+                print("Les sorties sont:\ndescendre")
             elif action == ("descendre"):
                 lieu = "sentier"
             elif action == "aide":
@@ -246,18 +241,18 @@ while True:
 
     if lieu == "pont_levis":
         if poisson_troll == 1:
-            print("Vous vous trouvez face au pont levis qui mène à... Château Aventure.\nLe troll mange le poisson.\n")
+            print("Vous vous trouvez face au pont levis qui mène à ... Château Aventure.\nLe troll mange le poisson.\n")
         elif poisson_troll == 0:
-            print("Vous vous trouvez face au pont levis qui mène à... Château Aventure.\nUn troll peu amène vous barre le passage.\n")
+            print("Vous vous trouvez face au pont levis qui mène à ... Château Aventure.\nUn troll peu amène vous barre le passage.\n")
         while lieu == "pont_levis":
             action = input()
             if action == "examiner":
                 if poisson_troll == 1:
-                    print("Vous vous trouvez face au pont levis qui mène à... Château Aventure.\nLe troll mange le poisson.\n")
+                    print("Vous vous trouvez face au pont levis qui mène à ... Château Aventure.\nLe troll mange le poisson.\n")
                 elif poisson_troll == 0:
-                    print("Vous vous trouvez face au pont levis qui mène à... Château Aventure.\nUn troll peu amène vous barre le passage.\n")
+                    print("Vous vous trouvez face au pont levis qui mène à ... Château Aventure.\nUn troll peu amène vous barre le passage.\n")
             elif action == ("examiner troll"):
-                print("Le troll est tès grand, vert, fort et semble bougon.\n")
+                print("Le troll est très grand, vert, fort et semble bougon.\n")
             elif action in ("attaquer troll", "taper troll", "frapper troll"):
                 print("Le troll est beaucoup plus fort que vous et vous réduit en bouillie.\n")
                 exit() 
@@ -274,7 +269,7 @@ while True:
                     print("Les sorties sont:\nsud\n")
                 if poisson_troll == 1:
                     print("Les sorties sont:\nsud\nnord\n")
-            elif action ==("sud"):
+            elif action == ("sud"):
                 lieu = "sentier"
             elif action == "nord":
                 if poisson_troll == 1:
@@ -290,15 +285,15 @@ while True:
             elif action.startswith("examiner "):
                 examiner(action[len("examiner "):])
             else:
-                print ("Commande inconnue\n")
+                print("Commande inconnue\n")
 
     if lieu == "cour":
-        if couronne_tête == 0:
+        if couronne_tete == 0:
             if garde_KO == 0:
-                print("Vous êtes dans la cour de Château Aventure.\nUn garde bloque le passage vers le nord.\n")
+                print("Vous êtes dans la cour de Château Aventure.\nUn garde bloque le passage vers le nord.\n")
             else:
-                print("Vous êtes dans la cour de Château Aventure.\nLe garde est toujours assommé.\n")
-        elif couronne_tête == 1:
+                print("Vous êtes dans la cour de Château Aventure.\nLe garde est toujours assommé.\n")
+        elif couronne_tete == 1:
             if garde_KO == 0:
                 print("Le garde se prosterne devant le monarque.")
             elif garde_KO == 1:
@@ -307,21 +302,21 @@ while True:
         while lieu == "cour":
             action = input()
             if action == "examiner":
-                if couronne_tête == 0:
+                if couronne_tete == 0:
                     if garde_KO == 0:
-                        print("Vous êtes dans la cour de Château Aventure.\nUn garde bloque le passage vers le nord.\n")
+                        print("Vous êtes dans la cour de Château Aventure.\nUn garde bloque le passage vers le nord.\n")
                     else:
-                        print("Vous êtes dans la cour de Château Aventure.\nLe garde est toujours assommé.\n")
-                elif couronne_tête == 1:
-                        print("Vous êtes dans la cour de Château Aventure.\nLe garde se prosterne devant le monarque.")
+                        print("Vous êtes dans la cour de Château Aventure.\nLe garde est toujours assommé.\n")
+                elif couronne_tete == 1:
+                        print("Vous êtes dans la cour de Château Aventure.\nLe garde se prosterne devant le monarque.")
             elif action == "examiner garde":
                 if garde_KO == 1:
-                    if clé == 1:
+                    if cle == 1:
                         print("Le garde est armé d'une épée, mais est assommé.\n")
                     else:
                         print("Le garde est armé d'une épée, il a une clé attachée à la ceinture, mais est assommé.\n")
                 else:
-                    if clé == 1:
+                    if cle == 1:
                         print("Le garde est armé d'une épée.")
                     else:
                         print("Le garde est armé d'une épée, il a une clé attachée à la ceinture.")
@@ -340,11 +335,11 @@ while True:
                     exit()
                 else:
                     print("Vous récupérez la clé attachée à la ceinture du garde.\nVous avez une clé dans votre inventaire.\n")
-                    clé = 1
+                    cle = 1
                     description["clé"] = "C'est une clef, ressemblant à toutes les autres clé. (Ha, la réforme de l'orthographe)\n"
                     description["clef"] = "C'est une clé, ressemblant à toutes les autres clef. (Ha, la réforme de l'orthographe)\n"
             elif action in ("demander à passer", "demander a passer", "demander pour passer"):
-                if couronne_tête == 0:
+                if couronne_tete == 0:
                     print("Le garde répond:\n'Je ne laisse pas passer les gueux comme vous !'\n")
             elif action == "prendre épée":
                 if garde_KO == 0:
@@ -359,12 +354,12 @@ while True:
                 else:
                     print("descendre (catacombes)")
                 print("monter")
-                if couronne_tête == 1 or garde_KO == 1:
+                if couronne_tete == 1 or garde_KO == 1:
                     print("nord")
             elif action == "sud":
                 lieu = "pont_levis"
             elif action == "monter":
-                if clé_porte == 0:
+                if cle_porte == 0:
                     lieu = "escalier_haut"
                 else:
                     lieu = "tour"
@@ -374,7 +369,7 @@ while True:
                 else:
                     lieu = "catacombe"
             elif action == "nord":
-                if couronne_tête == 1 or garde_KO == 1:
+                if couronne_tete == 1 or garde_KO == 1:
                     lieu = "banquet"
                 else:
                     print("Le garde bloque le passage vers le nord.\n")
@@ -389,7 +384,6 @@ while True:
             else:
                 print("Commande inconnue\n")
 
-                
     if lieu == "escalier_haut":
         print("Vous montez l'escalier de la tour.\nVous vous trouvez face à une porte qui est fermée à clé.\n")
         while lieu == "escalier_haut":
@@ -397,21 +391,21 @@ while True:
             if action == "examiner":
                 print("Vous êtes sur l'escalier de la tour.\nVous vous trouvez face à une porte qui est fermée à clé.\n")
             elif action == ("ouvrir porte"):
-                if clé == 1:            
-                    print("Grâce à la clé, vous ouvrez la porte\n")
-                    clé_porte = 1
+                if cle == 1:            
+                    print("Grâce à la clé, vous ouvrez la porte\n")
+                    cle_porte = 1
                     choix = input("Voulez-vous entrer ? (o/n)\n")
                     if choix == "o":
                         lieu = "tour"
                     elif choix == "n":
                         print("D'accord")
                     else:
-                        print("Tu dois taper o (pour entrer dans la tour) ou n( pour ne pas entrer dans la tour)\nTape entrer, pour entrer.\n")
+                        print("Tu dois taper o (pour entrer dans la tour) ou n (pour ne pas entrer dans la tour)\nTape entrer, pour entrer.\n")
                 else:           
                     print("On t'a dit que la porte était fermée à clé...\n")
             elif action == ("sortie"):
-                print ("descendre")
-                if clé_porte == 1:
+                print("descendre")
+                if cle_porte == 1:
                     print("entrer")
             elif action == ("descendre"):
                 lieu = "cour"
@@ -426,7 +420,7 @@ while True:
             elif action.startswith("examiner "):
                 examiner(action[len("examiner "):])
             else:
-                print ("Commande inconnue\n")
+                print("Commande inconnue\n")
                 
     if lieu == "tour":
         print("Vous êtes dans la tour.\nLa princesse se trouve là.\n")
@@ -446,7 +440,7 @@ while True:
                     if rose == 0:
                         print("Vous n'avez pas de rose...\n")
                 elif action == ("sortie"):
-                    print ("descendre")
+                    print("descendre")
                 elif action == "aide":
                     help()
                 elif action in ("crédits", "credits"):
@@ -454,40 +448,40 @@ while True:
                 elif action == "inventaire":
                     inventaire()
                 else:
-                    print ("La princesse n'est pas d'humeur à parler.\n")
+                    print("La princesse n'est pas d'humeur à parler.\n")
             elif rose_princesse == 1:
                 if action == "examiner":
                     print("Vous êtes dans la tour.\nLa princesse se trouve là.\n")
                 elif action == "embrasser princesse":
-                    if couronne_tête == 0:
+                    if couronne_tete == 0:
                         print("La princesse vous repousse et dit:\nPas en dehors du mariage !\n")
-                    elif couronne_tête == 1:
+                    elif couronne_tete == 1:
                         print("La princesse vous repousse et dit:\nPas avant que nous soyons mariés !\n")
                 elif action in ("donner couronne à princesse", "donner couronne a princesse"):
                     if couronne == 1:
-                        print ("La princesse s'exclame:\n<<La couronne de mon père !\nVous avez apaisé son esprit, et vous pouvez à présent lui succéder.>>\nLa princesse pose la couronne sur votre tête.\n")
-                        couronne_tête = 1
+                        print("La princesse s'exclame:\n<<La couronne de mon père !\nVous avez apaisé son esprit, et vous pouvez à présent lui succéder.>>\nLa princesse pose la couronne sur votre tête.\n")
+                        couronne_tete = 1
                     elif couronne == 0:
                         print("Vous n'avez pas de couronne\n")
-                elif action == ("parler princesse de trône"):
-                    print ("Elle dit:\n<<Seul le roi peut y prendre place.>>\n")
+                elif action == ("parler princesse de trône"):
+                    print("Elle dit:\n<<Seul le roi peut y prendre place.>>\n")
                 elif action == "parler princesse de couronne":
                     print("Elle dit:\n<<Seul le digne héritier peut la porter.>>\n")
                 elif action == ("demander princesse en mariage"):
-                    if couronne_tête == 0:
-                        print ("<<Je ne me marierai qu'avec quelqu'un de sang royal.>>\n")
-                    if couronne_tête == 1:
+                    if couronne_tete == 0:
+                        print("<<Je ne me marierai qu'avec quelqu'un de sang royal.>>\n")
+                    if couronne_tete == 1:
                         print("La princesse se réjouit:\n<<Oui ! Marions-nous !>>\n")
                 elif action == ("sortie"):
-                    print ("descendre\n")
+                    print("descendre\n")
                 elif action == ("descendre"):
-                    if clé_porte == 0:
+                    if cle_porte == 0:
                         lieu = "escalier_haut"
-                    if clé_porte == 1:
+                    if cle_porte == 1:
                         lieu = "cour"
                 elif action == "aide":
                     help()
-                    print ("\n- demander ... en mariage\n- embrasser...\n- parler ... de trône\n")
+                    print("\n- demander ... en mariage\n- embrasser...\n- parler ... de trône\n")
                 elif action in ("crédits", "credits"):
                     credits()
                 elif action == "inventaire":
@@ -495,12 +489,12 @@ while True:
                 elif action.startswith("examiner "):
                     examiner(action[len("examiner "):])
                 else:
-                    print ("Commande inconnue\n")
+                    print("Commande inconnue\n")
 
     if lieu == "banquet":
-        if couronne_tête == 1:
-            print("Vous arrivez dans une grande salle de banquet.\nCette pièce se révèle pleine de fêtards qui célèbrent le nouveau propriétaire de Château Aventure.\n")
-        if couronne_tête == 0:
+        if couronne_tete == 1:
+            print("Vous arrivez dans une grande salle de banquet.\nCette pièce se révèle pleine de fêtards qui célèbrent le nouveau propriétaire de Château Aventure.\n")
+        if couronne_tete == 0:
             if bougie == 0:
                 print("Vous arrivez dans une grande salle de banquet.\nIl y a une étrange bougie sur la table.\n")
             if bougie == 1:
@@ -508,21 +502,21 @@ while True:
         while lieu == "banquet":
             action = input()
             if action == "examiner":
-                if couronne_tête == 1:
-                    print("Vous êtes dans une grande salle de banquet.\nCette pièce se révèle pleine de fêtards qui célèbrent le nouveau propriétaire de Château Aventure.\n")
-                if couronne_tête == 0:
+                if couronne_tete == 1:
+                    print("Vous êtes dans une grande salle de banquet.\nCette pièce se révèle pleine de fêtards qui célèbrent le nouveau propriétaire de Château Aventure.\n")
+                if couronne_tete == 0:
                     if bougie == 0:
                         print("Vous êtes dans une grande salle de banquet.\nIl y a une étrange bougie sur la table.\n")
                     if bougie == 1:
-                        print("Vous  dans une grande salle de banquet.\n")
+                        print("Vous êtes dans une grande salle de banquet.\n")
             elif action == "examiner bougie":
                 print("La bougie est recouverte de runes ésotériques, elle est éteinte.\n")
             elif action == "prendre bougie":
                 print("Vous avez maintenant la bougie dans votre inventaire.\n")
                 bougie = 1
-                description["bougie"] = "C'est une bougie, recouverte de rune ésotériques. On dirait un exorcisme.\n"
+                description["bougie"] = "C'est une bougie, recouverte de runes ésotériques. On dirait un exorcisme.\n"
             elif action in ("lire runes", "examiner runes"):
-                print("Il semblerait que soit une sorte d'exorcisme.\n")
+                print("Il semblerait que ce soit une sorte d'exorcisme.\n")
             elif action == "allumer bougie avec torche":
                 print("Pas ici, ce lieu n'est pas approprié pour un exorcisme.")
             elif action == "sortie":
@@ -530,7 +524,7 @@ while True:
             elif action == ("nord"):
                 lieu = "salle_trone"
             elif action == ("sud"):
-                    lieu = "cour"
+                lieu = "cour"
             elif action == "aide":
                 help()
             elif action in ("crédits", "credits"):
@@ -542,7 +536,6 @@ while True:
             else:
                 print("Commande inconnue\n")
         
-                
     if lieu == "escalier_bas":
         print("Vous descendez les marches menant aux catacombes.\nIl fait trop noir pour continuer.\n")
         while lieu == "escalier_bas":  
@@ -563,7 +556,7 @@ while True:
                 elif catatorche == 0:
                     print("Il fait trop sombre pour descendre\n")
             elif action == "utiliser torche":
-                print ("Vous pouvez maintenant y voir plus clair.\n")
+                print("Vous pouvez maintenant y voir plus clair.\n")
             elif action == "aide":
                 help()
             elif action in ("crédits", "credits"):
@@ -573,11 +566,11 @@ while True:
             elif action.startswith("examiner "):
                 examiner(action[len("examiner "):])
             else:
-                print ("Commande inconnue\n")
+                print("Commande inconnue\n")
 
     if lieu == "catacombe":
         if fantome == 1:
-            print("Vous êtes dans les catacombes.\nIl y a un effrayant fantôme. Il porte une couronne.\n")
+            print("Vous êtes dans les catacombes.\nIl y a un effrayant fantôme. Il porte une couronne.\n")
         if fantome == 0:
             if couronne_terre == 0:
                   print("Vous êtes dans les catacombes.\n")
@@ -587,7 +580,7 @@ while True:
             action = input()
             if action == "examiner":
                 if fantome == 1:
-                    print("Vous êtes dans les catacombes.\nIl y a un effrayant fantôme. Il porte une couronne.\n")
+                    print("Vous êtes dans les catacombes.\nIl y a un effrayant fantôme. Il porte une couronne.\n")
                 if fantome == 0:
                     if couronne_terre == 0:
                           print("Vous êtes dans les catacombes.\n")
@@ -595,21 +588,21 @@ while True:
                           print("Vous êtes dans les catacombes.\nIl y une couronne par terre.\n")
             if action == ("prendre couronne"):
                 if fantome == 1:
-                    print ("Le fantôme l'a sur la tête.")
+                    print("Le fantôme l'a sur la tête.")
                 if fantome == 0:
-                    print("Vous rammassez la couronne tombée au sol.\nVous avez maintenant une couronne dans votre inventaire\n")
+                    print("Vous ramassez la couronne tombée au sol.\nVous avez maintenant une couronne dans votre inventaire\n")
                     description["couronne"] = "La couronne du roi de Château Aventure.\n"
                     couronne = 1
                     couronne_terre = 0
             elif action == ("porter couronne"):
                 if fantome == 1:
-                    print ("Le fantôme l'a sur la tête.")
+                    print("Le fantôme l'a sur la tête.")
                 if fantome == 0:
                     print("Vous n'oseriez quand même pas la porter sans être son propriétaire légitime !\n")
             elif action == ("allumer bougie avec torche"):
                 if bougie == 1:
                     if fantome == 1:
-                        print ("La bougie dégage une fumée étrange et âcre.\nLe fantôme s'enfuit et disparaît en laissant tomber la couronne.\n")
+                        print("La bougie dégage une fumée étrange et âcre.\nLe fantôme s'enfuit et disparaît en laissant tomber la couronne.\n")
                         fantome = 0
                         couronne_terre = 1
                     if fantome == 0:
@@ -629,19 +622,19 @@ while True:
             elif action.startswith("examiner "):
                 examiner(action[len("examiner "):])
             else:
-                print ("Commande inconnue\n")
+                print("Commande inconnue\n")
 
     if lieu == "salle_trone":
-        print("C'est la salle du trône de Château Aventure !\nIl y a un trône d'or richement orné.\n")
+        print("C'est la salle du trône de Château Aventure !\nIl y a un trône d'or richement orné.\n")
         while lieu == "salle_trone":
             action = input()
             if action =="examiner":
-                print("C'est la salle du trône de Château Aventure !\nIl y a un trône d'or richement orné.\n")
-            elif action in ("asseoir sur trône", "s'asseoir sur trône", "asseoir sur trone", "s'asseoir sur trone"):
-                if couronne_tête == 0:
-                    print("Vous n'oseriez pas vous asseoir sur ce magnifique trône !\n")
-                if couronne_tête == 1:
-                    print("Longue vie au roi de Château Aventure.\nFIN!")
+                print("C'est la salle du trône de Château Aventure !\nIl y a un trône d'or richement orné.\n")
+            elif action in ("asseoir sur trône", "s'asseoir sur trône", "asseoir sur trone", "s'asseoir sur trone"):
+                if couronne_tete == 0:
+                    print("Vous n'oseriez pas vous asseoir sur ce magnifique trône !\n")
+                if couronne_tete == 1:
+                    print("Longue vie au roi de Château Aventure.\nFIN!")
                     input("Appuyez sur Entrée pour quitter") 
                     exit() 
                     print("Bien Joué")
@@ -658,4 +651,4 @@ while True:
             elif action.startswith("examiner "):
                 examiner(action[len("examiner "):])
             else:
-                print ("Commande inconnue\n")
+                print("Commande inconnue\n")
