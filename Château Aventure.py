@@ -71,7 +71,7 @@ while True:
                     print("Vous êtes debout dans une petite hutte.\nIl y a une canne à pêche ici.\n")
                 if canne_a_peche == 1:
                     print("Vous êtes debout dans une petite hutte.\n")
-            if action in ("examiner canne à pêche", "examiner canne a peche", "examiner canne à peche", "examiner canne a pêche", "examiner canne"):
+            elif action in ("examiner canne à pêche", "examiner canne a peche", "examiner canne à peche", "examiner canne a pêche", "examiner canne"):
                 if canne_a_peche == 0:
                     print("La canne à pêche est une simple canne à pêche.")
             elif action in ("prendre canne à pêche", "prendre canne a peche", "prendre canne à peche", "prendre canne a pêche", "prendre canne"):
